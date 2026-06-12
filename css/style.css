@@ -1,0 +1,59 @@
+
+
+
+
+/* boton subir */ 
+
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Inter:wght@300&display=swap');
+
+.btn-aesthetic-mono {
+ 
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  
+ 
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  
+  /* Estructura */
+  padding: 15px 40px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  outline: none;
+}
+
+
+.btn-aesthetic-mono:hover {
+  background-color: #000000;
+  color: #ffffff;
+  /* Sombra gris minimalista */
+  box-shadow: 8px 8px 0px #e0e0e0;
+}
+
+
+.btn-aesthetic-mono:active {
+  transform: translateY(4px);
+  box-shadow: 2px 2px 0px #e0e0e0;
+}
+
+
+.btn-aesthetic-mono::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #cccccc;
+  bottom: -10px;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-aesthetic-mono:hover::after {
+  opacity: 1;
+}

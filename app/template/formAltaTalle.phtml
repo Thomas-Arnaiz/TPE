@@ -1,0 +1,20 @@
+<section class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h2 class="h5 mb-0">Agregar Nuevo Talle</h2>
+        </div>
+        <div class="card-body">
+            <form action="<?= BASE_URL ?>agregar-talle" method="POST">
+    <div class="mb-3">
+        <label>Nombre del talle:</label>
+        <input type="text" name="nombre_talle" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>URL de la Imagen (Opcional):</label>
+        <input type="text" name="imagen_url" class="form-control" placeholder="http://...">
+    </div>
+    <button type="submit" class="btn btn-success">Guardar Talle</button>
+</form>
+        </div>
+    </div>
+</section>

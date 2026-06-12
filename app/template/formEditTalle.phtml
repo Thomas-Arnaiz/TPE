@@ -1,0 +1,30 @@
+<?php if (!$talle): ?>
+    <div class="alert alert-danger" role="alert">
+        Error: No se encontró el talle.
+    </div>
+    <a href="<?= BASE_URL ?>talles" class="btn btn-secondary">Volver</a>
+<?php else: ?>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title mb-4">Editar Talle #<?= $talle->talle_id ?></h2>
+            <form action="<?= BASE_URL ?>update-talle" method="POST">
+                <input type="hidden" name="talle_id" value="<?= $talle->talle_id ?>">
+
+                <div class="mb-3">
+                    <label for="nombreTalle" class="form-label">Nombre</label>
+                    <input type="text" id="nombreTalle" name="nombre_talle" class="form-control" value="<?= $talle->nombre_talle ?>" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="imagenUrl" class="form-label">URL Imagen</label>
+                    <input type="text" id="imagenUrl" name="imagen_url" class="form-control" value="<?= $talle->imagen_url ?>">
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="<?= BASE_URL ?>talles" class="btn btn-outline-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,60 @@
+<section class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Listado de Talles</h2>
+        <?php if (isset($_SESSION['USER_ID'])): ?>
+
+            <a href="<?= BASE_URL ?>nuevo-talle" class="btn btn-success">
+                <i class="bi bi-plus-lg"></i> + Agregar Nuevo Talle
+            </a>
+
+        <?php endif; ?>
+    </div>
+
+    <table class="table table-hover align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>Imagen</th>
+                <th>Talle</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($talles as $talle): ?>
+                <tr>
+                    <td><strong>#<?= $talle->talle_id ?></strong></td>
+                    <td>
+                        <?php if (!empty($talle->imagen_url)): ?>
+                            <img src="<?= $talle->imagen_url ?>" alt="Foto" style="width: 50px; height: 50px; object-fit: cover;" class="rounded border">
+                        <?php else: ?>
+                            <span class="text-muted small">Sin foto</span>
+                        <?php endif; ?>
+                    </td>
+                    <td><span class="badge bg-secondary"><?= $talle->nombre_talle ?></span></td>
+                    <td>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="<?= BASE_URL ?>ver-ropa-talle/<?= $talle->talle_id ?>" class="btn btn-info btn-sm text-white">Ver</a>
+
+                            <?php if (isset($_SESSION['USER_ID'])): ?>
+
+                                <a href="<?= BASE_URL ?>view-edit-talle/<?= $talle->talle_id ?>"
+                                class="btn btn-outline-primary btn-sm">
+                                Editar
+                                </a>
+
+                                <a href="<?= BASE_URL ?>eliminar-talle/<?= $talle->talle_id ?>"
+                                    class="btn btn-outline-danger btn-sm"
+                                    onclick="return confirm('¿Borrar talle?')">
+
+                                    Eliminar
+
+                                </a>
+
+                            <?php endif; ?>
+                        </div>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</section>

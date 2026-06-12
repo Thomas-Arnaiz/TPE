@@ -1,0 +1,25 @@
+<section>
+    <h1>Editar Ropa</h1>
+    <form action="edit-ropa" method="POST">
+        
+        <input type="hidden" name="ropa_id" value="<?= $ropa->ropa_id ?>">
+
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" value="<?= $ropa->nombre ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="talle_id" class="form-label">Talle</label>
+            <?php
+            require 'app/template/seleccion-talles.phtml'; ?>
+        </div>
+
+        <div class="mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input type="number" step="0.01" class="form-control" id="precio" name="precio" value="<?= $ropa->precio ?>" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+</section>

@@ -1,0 +1,6 @@
+<select name="select-talle" id="talle_id" class="form-select" required>
+    <option value="" selected>Selecciona un talle</option>
+    <?php foreach ($talles as $talle) { ?>
+        <option value="<?= $talle->talle_id ?>"><?= $talle->nombre_talle ?></option>
+    <?php } ?>
+</select>

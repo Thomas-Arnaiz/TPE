@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ropa por Talle</title>
+    <style>
+        table { width: 50%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        .no-stock { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>Listado de ropa filtrada</h1>
+
+    <?php if (empty($items)): ?>
+        <p class="no-stock">No se encontraron prendas para este talle en este momento.</p>
+    <?php else: ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Prenda</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($items as $prenda): ?>
+                    <tr>
+                        <td><?= $prenda->ropa_id ?></td>
+                        <td><?= $prenda->nombre ?></td>
+                        <td>$<?= $prenda->precio ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endif; ?>
+
+    <p><a href="<?= BASE_URL ?>home" class="btn btn-link">Volver al inicio</a></p>
+
+</body>
+</html>

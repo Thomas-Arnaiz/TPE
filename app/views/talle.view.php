@@ -19,4 +19,11 @@ class talleview {
 public function renderFormAlta() {
     require 'app/template/formAltaTalle.phtml';
 }
+     public function showError($message)
+    {
+        require_once 'app/template/header.phtml';
+        echo "<div class='error'>$message</div>";
+        require_once 'app/template/footer.phtml';
+    }
+
 }

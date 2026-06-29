@@ -87,6 +87,11 @@ class TalleController
 
     public function eliminarTalle($id)
     {
+        if (!authHelper::isLoggedIn() ) {
+
+        return $this->talleview->showError("No tienes permisos para eliminar un talle.");
+            
+        }
 
 
         $this->tallemodel->eliminarTalle($id);

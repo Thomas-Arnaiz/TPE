@@ -22,4 +22,10 @@ class AuthHelper
         AuthHelper::initSession();
         session_destroy();
     }
+
+    public static function isLoggedIn()
+    {
+        AuthHelper::initSession();
+        return isset($_SESSION['USER_ID']);
+    }
 }

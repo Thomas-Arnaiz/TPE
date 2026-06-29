@@ -21,7 +21,7 @@ class UserController
             $confirm_password = $_POST['confirm_password'];
 
             if ($password !== $confirm_password) {
-                //$this->view->showError("Las contraseñas no coinciden.");
+                $this->view->showError("Las contraseñas no coinciden.");
                 return;
             }
 
@@ -30,7 +30,7 @@ class UserController
             if ($registroExitoso) {
                 header("Location: " . BASE_URL . "login");
             } else {
-                //$this->view->showError("Error al registrar el usuario.");
+                $this->view->showError("Error al registrar el usuario.");
             }
         }
     }
@@ -46,7 +46,7 @@ class UserController
                 AuthHelper::signIn($user);
                 header("Location: " . BASE_URL . "home");
             } else {
-                //$this->view->showError("Credenciales inválidas.");
+                $this->view->showError("Credenciales inválidas.");
             }
         }
     }
